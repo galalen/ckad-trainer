@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+const systemPrompt = "You are a Kubernetes expert specializing in CKAD exam preparation."
+
 func BuildPrompt(scenariosCount int) string {
 	return fmt.Sprintf(`
 	Generate %d detailed CKAD (Certified Kubernetes Application Developer) exam practice scenarios with the following enhanced requirements:
@@ -26,7 +28,7 @@ func BuildPrompt(scenariosCount int) string {
 	Title
 	Description with clear context
 	Specific, actionable tasks
-	Validation script
+	Validation script (returns non-zero exit code on failure)
 	Recommended cluster setup commands
 	Cleanup instructions
 	
@@ -50,7 +52,7 @@ func BuildPrompt(scenariosCount int) string {
 		{
 		  "title": "Scenario title",
 		  "description": "Background and context",
-		  "tasks": ["Task 1", "Task 2", "Task 3"],
+		  "tasks": ["Task 1", "Task 2", "Task 3", ...],
 		  "validation": "#!/bin/bash\n# Validation script that checks the solution"
 		}
 	  ]

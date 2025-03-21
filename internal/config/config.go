@@ -15,6 +15,7 @@ type Config struct {
 	Model            string
 	MaxTokens        int
 	Temperature      float64
+	Timeout          int
 	OutputDir        string
 	ScenariosCount   int
 	ValidateScenario int

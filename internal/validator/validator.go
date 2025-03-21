@@ -41,7 +41,7 @@ func ValidateScenarios(cfg *config.Config) error {
 			return fmt.Errorf("%d scenarios failed validation", failures)
 		}
 
-		color.Green("All scenarios validated successfully")
+		color.Blue("Validation completed")
 		return nil
 	} else {
 		scenarioNum := fmt.Sprintf("%02d", cfg.ValidateScenario)
@@ -72,7 +72,7 @@ func validateScenario(outputDir, scenarioNum string) error {
 		return fmt.Errorf("validation failed: %w", err)
 	}
 
-	color.Green("Scenario %s validated successfully", scenarioNum)
+	color.Blue("Scenario %s validation completed", scenarioNum)
 	return nil
 }
 

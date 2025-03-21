@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 
 	"github.com/galalen/ckad-trainer/internal/config"
@@ -36,7 +37,7 @@ func main() {
 		Short: "Run validation scripts for scenarios",
 		Run: func(cmd *cobra.Command, args []string) {
 			if err := validator.ValidateScenarios(cfg); err != nil {
-				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+				color.Red("Error: %v\n", err)
 				os.Exit(1)
 			}
 		},
@@ -49,6 +50,7 @@ func main() {
 	generateCmd.Flags().IntVarP(&cfg.ScenariosCount, "count", "n", 5, "Number of scenarios to generate")
 	generateCmd.Flags().IntVarP(&cfg.MaxTokens, "max-tokens", "", 4000, "Maximum tokens for response")
 	generateCmd.Flags().Float64VarP(&cfg.Temperature, "temperature", "t", 0.7, "Temperature for generation")
+	generateCmd.Flags().IntVarP(&cfg.Timeout, "timeout", "T", 2, "Request timeout (in minutes)")
 
 	validateCmd.Flags().IntVarP(&cfg.ValidateScenario, "scenario", "s", 0, "Specific scenario number to validate (0 for none)")
 	validateCmd.Flags().BoolVarP(&cfg.ValidateAll, "all", "a", false, "Validate all scenarios")

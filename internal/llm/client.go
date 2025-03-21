@@ -21,7 +21,7 @@ type Client struct {
 func NewClient(cfg *config.Config) *Client {
 	return &Client{
 		config: cfg,
-		http:   &http.Client{Timeout: 2 * time.Minute},
+		http:   &http.Client{Timeout: time.Duration(cfg.Timeout) * time.Minute},
 	}
 }
 
@@ -35,7 +35,7 @@ func (c *Client) GenerateScenarios() ([]models.Scenario, error) {
 		Messages: []models.LLMMessage{
 			{
 				Role:    "system",
-				Content: "You are a Kubernetes expert specializing in CKAD exam preparation.",
+				Content: systemPrompt,
 			},
 			{
 				Role:    "user",
