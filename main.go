@@ -7,9 +7,9 @@ import (
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 
-	"github.com/galalen/ckad-trainer/internal/config"
-	"github.com/galalen/ckad-trainer/internal/generator"
-	"github.com/galalen/ckad-trainer/internal/validator"
+	"github.com/galalen/ckad-trainer/config"
+	"github.com/galalen/ckad-trainer/generator"
+	"github.com/galalen/ckad-trainer/validator"
 )
 
 func main() {

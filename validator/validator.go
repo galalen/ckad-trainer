@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/galalen/ckad-trainer/internal/config"
+	"github.com/galalen/ckad-trainer/config"
 )
 
 func ValidateScenarios(cfg *config.Config) error {

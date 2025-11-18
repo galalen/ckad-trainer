@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 
 	"github.com/fatih/color"
-	"github.com/galalen/ckad-trainer/internal/config"
-	"github.com/galalen/ckad-trainer/internal/llm"
-	"github.com/galalen/ckad-trainer/internal/models"
+	"github.com/galalen/ckad-trainer/config"
+	"github.com/galalen/ckad-trainer/llm"
+	"github.com/galalen/ckad-trainer/models"
 )
 
 func GenerateScenarios(cfg *config.Config) error {

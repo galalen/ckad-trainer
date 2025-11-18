@@ -25,7 +25,7 @@ A CLI tool for generating Certified Kubernetes Application Developer (CKAD) prac
 ```bash
 git clone https://github.com/galalen/ckad-trainer.git
 cd ckad-trainer
-go build -o ckad-trainer ./cmd/ckad-trainer
+go build -o ckad-trainer main.go
 ```
 
 ## Usage
