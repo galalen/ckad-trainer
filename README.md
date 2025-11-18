@@ -13,7 +13,12 @@ A CLI tool for generating Certified Kubernetes Application Developer (CKAD) prac
 ### Prerequisites
 
 - Go 1.21 or higher
-- An API key for OpenAI or OpenRouter
+- A local Kubernetes cluster — any of the following works:
+  - **Minikube**
+  - **kind** (Kubernetes in Docker)
+  - **Docker Desktop Kubernetes**
+  - **Any standard local Kubernetes cluster**
+- API key for **OpenAI** or **OpenRouter**
 
 ### Building from Source
 

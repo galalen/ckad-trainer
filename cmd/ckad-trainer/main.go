@@ -26,7 +26,7 @@ func main() {
 		Short: "Generate CKAD scenarios",
 		Run: func(cmd *cobra.Command, args []string) {
 			if err := generator.GenerateScenarios(cfg); err != nil {
-				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+				color.Red("Error: %v", err)
 				os.Exit(1)
 			}
 		},
@@ -37,7 +37,7 @@ func main() {
 		Short: "Run validation scripts for scenarios",
 		Run: func(cmd *cobra.Command, args []string) {
 			if err := validator.ValidateScenarios(cfg); err != nil {
-				color.Red("Error: %v\n", err)
+				color.Red("Error: %v", err)
 				os.Exit(1)
 			}
 		},
