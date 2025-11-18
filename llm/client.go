@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/galalen/ckad-trainer/internal/config"
-	"github.com/galalen/ckad-trainer/internal/models"
+	"github.com/galalen/ckad-trainer/config"
+	"github.com/galalen/ckad-trainer/models"
 )
 
 type Client struct {

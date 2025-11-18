@@ -7,9 +7,9 @@ import (
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 
-	"github.com/galalen/ckad-trainer/internal/config"
-	"github.com/galalen/ckad-trainer/internal/generator"
-	"github.com/galalen/ckad-trainer/internal/validator"
+	"github.com/galalen/ckad-trainer/config"
+	"github.com/galalen/ckad-trainer/generator"
+	"github.com/galalen/ckad-trainer/validator"
 )
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 		Short: "Generate CKAD scenarios",
 		Run: func(cmd *cobra.Command, args []string) {
 			if err := generator.GenerateScenarios(cfg); err != nil {
-				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+				color.Red("Error: %v", err)
 				os.Exit(1)
 			}
 		},
@@ -37,7 +37,7 @@ func main() {
 		Short: "Run validation scripts for scenarios",
 		Run: func(cmd *cobra.Command, args []string) {
 			if err := validator.ValidateScenarios(cfg); err != nil {
-				color.Red("Error: %v\n", err)
+				color.Red("Error: %v", err)
 				os.Exit(1)
 			}
 		},
