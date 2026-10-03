@@ -18,8 +18,12 @@ type Config struct {
 	Timeout          int
 	OutputDir        string
 	ScenariosCount   int
+	Concurrency      int
+	Topic            string
 	ValidateScenario int
 	ValidateAll      bool
+	AllowScripts     bool
+	CheckTimeout     int
 }
 
 func NewConfig() *Config {
@@ -28,6 +32,9 @@ func NewConfig() *Config {
 		Model:            "",
 		MaxTokens:        4000,
 		Temperature:      0.7,
+		Timeout:          2,
+		Concurrency:      3,
+		CheckTimeout:     20,
 		OutputDir:        "scenarios",
 		ScenariosCount:   5,
 		ValidateScenario: 0,
@@ -42,7 +49,7 @@ func (c *Config) GetDefaultModel() string {
 
 	switch c.Provider {
 	case OpenAI:
-		return "gpt-4"
+		return "gpt-4o-mini"
 	case OpenRouter:
 		return "deepseek/deepseek-chat:free"
 	default:
